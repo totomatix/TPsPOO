@@ -9,10 +9,40 @@ namespace TPsPOO
     public class Personne
     {
         // attributs
-        public string Name;
-        public string FirstName;
-        public int Age;
-        public List<Car> ListeCar = new List<Car>();
+        private string Name;
+        private string FirstName;
+        private int Age;
+        private List<Car> ListeCar = new List<Car>();
+
+        public string GetName()
+        {
+            return Name;
+        }
+
+        public void SetName(string name)
+        {
+            Name = name;
+        }
+
+        public string GetFirstName()
+        {
+            return FirstName;
+        }
+
+        public void SetFirstName(string firstname)
+        {
+            FirstName = firstname;
+        }
+
+        public int GetAge()
+        {
+            return Age;
+        }
+
+        public void SetAge(int age)
+        {
+            Age = age;
+        }
 
         public void Print()
         {
@@ -25,6 +55,16 @@ namespace TPsPOO
                 car.Print();
             }
 
+        }
+
+        public void AddCar(Car car)
+        {
+            ListeCar.Add(car);
+        }
+
+        public void RemoveCar(Car car)
+        {
+            ListeCar.Remove(car);
         }
     }
 }
