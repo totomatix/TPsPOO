@@ -10,78 +10,32 @@ namespace TPsPOO
     public class Car
     {
         // attributs
-        private string Registration;
-        private string Model;
-        private string Brand;
-        private int KM;
-        private DateTime DateDeMiseEnService;
-        private int Power;
-        private Personne? Owner;
+        private string _Registration;
+        private string _Model;
+        private string _Brand;
+        private int _KM;
+        private DateTime _DateDeMiseEnService;
+        private int _Power;
+        private Personne? _Owner;
+        private static List<string> ListImmatriculations = new List<string>();
 
-        public string GetRegistration()
-        {
-            return Registration;
+        public string Registration { 
+            get => _Registration; 
+            set 
+            { 
+                _Registration = value;
+                if (!ListImmatriculations.Contains(_Registration))
+                {
+                    ListImmatriculations.Add(_Registration);
+                }
+            } 
         }
-
-        public void SetRegistration(string registration)
-        {
-            Registration = registration;
-        }
-
-        public string GetModel()
-        {
-            return Model;
-        }
-
-        public void SetModel(string model)
-        {
-            Model = model;
-        }
-
-        public string GetBrand()
-        {
-            return Brand;
-        }
-
-        public void SetBrand(string brand)
-        {
-            Brand = brand;
-        }
-
-        public int GetKM()
-        {
-            return KM;
-        }
-
-        public void SetKM(int km)
-        {
-            KM = km;
-        }
-
-        public DateTime GetDateDeMiseEnService()
-        {
-            return DateDeMiseEnService;
-        }
-
-        public void SetDateDeMiseEnService(DateTime date)
-        {
-            DateDeMiseEnService = date;
-        }
-
-        public int GetPower()
-        {
-            return Power;
-        }
-
-        public void SetPower(int power)
-        {
-            Power = power;
-        }
-
-        public Personne GetOwner()
-        {
-            return Owner;
-        }
+        public string Model { get => _Model; set => _Model = value; }
+        public string Brand { get => _Brand; set => _Brand = value; }
+        public int KM { get => _KM; set => _KM = value; }
+        public DateTime DateDeMiseEnService { get => _DateDeMiseEnService; set => _DateDeMiseEnService = value; }
+        public int Power { get => _Power; set => _Power = value; }
+        public Personne? Owner { get => _Owner; private set => _Owner = value; }
 
         public void AddOwner(Personne personne)
         {

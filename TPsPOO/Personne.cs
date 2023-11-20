@@ -9,40 +9,36 @@ namespace TPsPOO
     public class Personne
     {
         // attributs
-        private string Name;
-        private string FirstName;
-        private int Age;
-        private List<Car> ListeCar = new List<Car>();
+        private string _Name;
+        private string _FirstName;
+        private int _Age;
+        private List<Car> _ListeCar = new List<Car>();
+        private static int _CompteurInstances;
+        private static List<int> ListAges = new List<int>();
 
-        public string GetName()
+        // constructeurs
+        public Personne()
         {
-            return Name;
+            _CompteurInstances++;
         }
-
-        public void SetName(string name)
+        public Personne(string name, string firstName, int age)
         {
             Name = name;
-        }
-
-        public string GetFirstName()
-        {
-            return FirstName;
-        }
-
-        public void SetFirstName(string firstname)
-        {
-            FirstName = firstname;
-        }
-
-        public int GetAge()
-        {
-            return Age;
-        }
-
-        public void SetAge(int age)
-        {
+            FirstName = firstName;
             Age = age;
+            _CompteurInstances++;
         }
+        // destructeur
+        ~Personne()
+        {
+            _CompteurInstances--;
+        }
+
+        public string Name { get => _Name; set => _Name = value; }
+        public string FirstName { get => _FirstName; set => _FirstName = value; }
+        public int Age { get => _Age; set { _Age = value;
+                ListAges.Add(value); // ajout de l'âge à la liste d'âges
+            } }
 
         public void Print()
         {
@@ -50,7 +46,7 @@ namespace TPsPOO
             Console.WriteLine($"Firstname : {FirstName}");
             Console.WriteLine($"Age : {Age}");
             Console.WriteLine("Voitures :");
-            foreach (Car car in ListeCar)
+            foreach (Car car in _ListeCar)
             {
                 car.Print();
             }
@@ -59,12 +55,22 @@ namespace TPsPOO
 
         public void AddCar(Car car)
         {
-            ListeCar.Add(car);
+            _ListeCar.Add(car);
         }
 
         public void RemoveCar(Car car)
         {
-            ListeCar.Remove(car);
+            _ListeCar.Remove(car);
+        }
+
+        public static int GetNbInstances()
+        {
+            return _CompteurInstances;
+        }
+
+        public static double AgeMoyen()
+        {
+            return Convert.ToDouble(ListAges.Sum()) / ListAges.Count;
         }
     }
 }
