@@ -41,3 +41,16 @@ P2.Print();
 Console.WriteLine($"Il y'a actuellement {Personne.GetNbInstances()} instances de personne.");
 
 Console.WriteLine($"La moyenne d'âge des personnes est égale à {Personne.AgeMoyen()}");
+
+Entreprise E1 = new Entreprise("Ent1", 123456);
+Garage G1 = new Garage("Gar1", 654321);
+
+E1.AfficherIdentite();
+G1.AfficherIdentite();
+
+G1.DepotVoiture(C1);
+G1.DepotVoiture(C2);
+Garagiste Garagiste1 = new Garagiste();
+G1.AssocierGaragisteVoiture(Garagiste1, C1);
+G1.RetraitVoiture(C2);
+G1.AfficherIdentite();
