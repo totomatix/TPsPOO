@@ -8,23 +8,45 @@ namespace TPsPOO
 {
     public class Entreprise
     {
-        // attributs
+
+        #region Attributs
         private string _Nom = string.Empty;
         private long _Siret;
+        #endregion
 
+        #region Constructeurs
+        /// <summary>
+        /// Constructeur permettant d'instantier une entreprise en renseignat son nom et son numéro SIRET
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="siret"></param>
         public Entreprise(string nom, long siret)
         {
             Nom = nom;
             Siret = siret;
         }
+        #endregion
 
-        public string Nom { get => _Nom.ToUpper(); set => _Nom = value; } 
+        #region Properties
+        /// <summary>
+        /// Nom de l'entreprise
+        /// </summary>
+        public string Nom { get => _Nom.ToUpper(); set => _Nom = value; }
+        /// <summary>
+        /// Numéro SIRET de l'entreprise
+        /// </summary>
         public long Siret { get => _Siret; set => _Siret = value; }
+        #endregion
 
-        public void AfficherIdentite()
+        #region Méthodes
+        /// <summary>
+        /// Méthode permettant d'afficher l'identité d'une entreprise
+        /// </summary>
+        public virtual void AfficherIdentite()
         {
             Console.WriteLine($"Nom : {Nom}");
             Console.WriteLine($"Siret : {Siret}");
-        }
+        } 
+        #endregion
     }
 }

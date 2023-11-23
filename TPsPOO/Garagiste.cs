@@ -8,6 +8,24 @@ namespace TPsPOO
 {
     public class Garagiste : Personne
     {
-        
+        private uint _Skill;
+
+        /// <summary>
+        /// Talent du garagiste entre 0 et 100
+        /// </summary>
+        public uint Skill
+        {
+            get => _Skill; set
+            {
+                if (value > 100)
+                {
+                    _Skill = 100;
+                }
+                else
+                {
+                    _Skill = value;
+                }
+            }
+        }
     }
 }
