@@ -8,5 +8,9 @@ namespace TPsPOO
 {
     public class Client : Personne
     {
+        public override string? ToString()
+        {
+            return "Client : \n" + base.ToString();
+        }
     }
 }

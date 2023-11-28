@@ -123,6 +123,22 @@ namespace TPsPOO
         {
             return Dommages * (2 - skillGaragiste / 100);
         }
+
+        public override string? ToString()
+        {
+            return $"Marque : {Brand}\n" +
+                $"Modèle : {Model}\n" +
+                $"Plaque d'immatriculation : {Registration}";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Vehicule vehicule &&
+                   Registration == vehicule.Registration;
+        }
+
+
+
         #endregion
 
 

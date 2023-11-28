@@ -81,7 +81,22 @@ namespace TPsPOO
         public static double AgeMoyen()
         {
             return Convert.ToDouble(ListAges.Sum()) / ListAges.Count;
-        } 
+        }
+
+        public override string? ToString()
+        {
+            return $"Nom : {Name}\n" +
+                $"Prenom : {FirstName}";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            // on appelle le equals de object car on ne souhaite pas que deux instances différentes de personnes puissent être égales
+            return base.Equals(obj);
+        }
+
+
+
         #endregion
     }
 }

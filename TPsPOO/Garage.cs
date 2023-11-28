@@ -88,6 +88,14 @@ namespace TPsPOO
                 Console.WriteLine("Ce véhicule n'est actuellement pas en réparation dans ce garage.");
             }
         }
+
+        public override string? ToString()
+        {
+            return base.ToString() 
+                 + "\nType d'entrerprise : Garage automobile";
+        }
+
+
         #endregion
     }
 }

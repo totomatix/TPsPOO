@@ -12,5 +12,10 @@ namespace TPsPOO
         {
             return 2 * base.TempsReperationEstime(skillGaragiste);
         }
+
+        public override string? ToString()
+        {
+            return "Camion : \n" + base.ToString();
+        }
     }
 }

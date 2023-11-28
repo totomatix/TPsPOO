@@ -73,3 +73,16 @@ Console.WriteLine($"Temps de réparation estimé pour la voiture : {C1.TempsRepe
 // cas 2 : camion
 C2.Dommages = 10;
 Console.WriteLine($"Temps de réparation estimé pour le camion : {C2.TempsReperationEstime(50)}");
+
+
+List<Vehicule> vehicules = new List<Vehicule>();
+vehicules.Add(C1);
+vehicules.Add(C2);
+
+foreach (Vehicule v in vehicules)
+{
+    Console.WriteLine(v);
+}
+
+Console.WriteLine(E1);
+Console.WriteLine(G1);

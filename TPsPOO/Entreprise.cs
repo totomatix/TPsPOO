@@ -46,7 +46,22 @@ namespace TPsPOO
         {
             Console.WriteLine($"Nom : {Nom}");
             Console.WriteLine($"Siret : {Siret}");
-        } 
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Entreprise entreprise &&
+                   Siret == entreprise.Siret;
+        }
+
+        public override string? ToString()
+        {
+            return $"Nom : {Nom}\n" +
+                $"Siret : {Siret}";
+        }
+
+
         #endregion
+
     }
 }

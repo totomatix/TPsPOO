@@ -27,5 +27,12 @@ namespace TPsPOO
                 }
             }
         }
+
+        public override string? ToString()
+        {
+            return "Garagiste : \n" + base.ToString();
+        }
     }
+
+
 }
